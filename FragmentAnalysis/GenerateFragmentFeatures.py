@@ -17,8 +17,15 @@ from functools import partial
 
 
 def frag_ratio(frag_lengths):  # compute the ratio of short to long fragments
-    short_frags = len([x for x in frag_lengths if x <= 120])
-    long_frags = len([x for x in frag_lengths if 140 <= x <= 250])
+
+#    # Gavin Ha definition
+#    short_frags = len([x for x in frag_lengths if x <= 120])
+#    long_frags = len([x for x in frag_lengths if 140 <= x <= 250])
+    
+    # DELFI definition
+    short_frags = len([x for x in frag_lengths if 100 <= x <= 150])
+    long_frags = len([x for x in frag_lengths if 151 <= x <= 220])
+    
     if short_frags > 0 and long_frags > 0:
         ratio = short_frags / long_frags
         return ratio
